@@ -1,0 +1,1 @@
+Math.round(timegap / (60*60 * 24*1000) )

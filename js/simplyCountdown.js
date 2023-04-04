@@ -160,8 +160,8 @@
 
         if (parameters.enableUtc) {
             targetDate = new Date(
-                targetTmpDate.getUTCFullYear(),
-                targetTmpDate.getUTCMonth(),
+                /*targetTmpDate.getUTCFullYear(),
+                targetTmpDate.getUTCMonth(),*/
                 targetTmpDate.getUTCDate(),
                 targetTmpDate.getUTCHours(),
                 targetTmpDate.getUTCMinutes(),
@@ -215,13 +215,18 @@
 				dtemp.setDate(1);
 				dtemp.setMonth(0);
 				dtemp.setTime(dtemp.getTime() + timegap);
-				
+				console.log(timegap)
 				//console.log(nuiyear, dtemp.getMonth(), dtemp.getDate()-1, dtemp.getHours());
 				
 				//maping
 				days = nuiyear;
 				hours = dtemp.getMonth();
-				minutes = dtemp.getDate()-1;
+                var now1 = new Date(); 
+                var next = new Date('2023-02-22 00:00:00')
+                var timegapnew = now1.getTime() - next.getTime();
+				minutes = Math.floor(timegapnew/ (1000 * 3600 * 24));
+                //minutes = timegapnew/ (1000 * 3600 * 24)
+                //minutes = ;
 				seconds = dtemp.getHours();
                 var pthh = dtemp.getMinutes();
                 var ptkk = dtemp.getSeconds();
